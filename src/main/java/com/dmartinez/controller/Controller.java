@@ -29,6 +29,7 @@ public class Controller {
     private static final Logger logger = LogManager.getLogger(Controller.class);
 
     private final PriceServiceImpl priceServiceImpl;
+       private final PriceService priceService;
 
     @Autowired
     public Controller(PriceServiceImpl priceServiceImpl) {
@@ -58,3 +59,32 @@ public class Controller {
     }
 
 }
+
+y otra clase 
+    package com.dmartinez.service.impl;
+
+import com.dmartinez.models.dto.PricesDTO;
+import com.dmartinez.service.PriceService;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+
+@Service
+public class PriceServiceImpl implements PriceService {
+    @Override
+    public PricesDTO findByBrandidAndProductidAndAndDate(String shop, String productId, LocalDateTime date) {
+        // Implementación del método
+        return new PricesDTO();
+    }
+}
+ y la otra asi 
+     package com.dmartinez.service;
+
+import com.dmartinez.models.dto.PricesDTO;
+
+import java.time.LocalDateTime;
+
+public interface PriceService {
+    PricesDTO findByBrandidAndProductidAndAndDate(String shop, String productId, LocalDateTime date);
+}
+
